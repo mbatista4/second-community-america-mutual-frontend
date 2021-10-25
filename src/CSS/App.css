@@ -2,11 +2,12 @@
     height: 95vh;
     display: flex;
     flex-direction: row;
+    background-color: #e2eafc;
 }
 
 .login-landing {
-    flex: 1;
-    background-color: gray;
+    flex: .8;
+    background-color: #e2eafc;
 }
 
 .landing-content {
@@ -17,22 +18,40 @@
 }
 
 .landing-top {
-    flex: 1;
-    height: 100%;
+    flex: .1;
+    margin-top: 1.5em;
+    margin-bottom: 4em;
+    width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding-left: 1em;
-    background-color: aqua;
+    background-color: #d7e3fc;
 
 }
 
+.landing-top h1 {
+    font-size: 2cm;
+    padding-bottom: .2em;
+}
+
+.landing-top h3 {
+    font-size: large;
+    padding-bottom: .2em;
+}
+
+.landing-top p {
+    font-size: medium;
+    padding-bottom: .2em;
+}
+
+
 .landing-bottom {
-    flex: 3;
-    height: 100%;
+    height: 50%;
+    width: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding-left: 1em;
-    background-color: blueviolet;
+    background-color: #d7e3fc;
 }
