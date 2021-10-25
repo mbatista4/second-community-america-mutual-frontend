@@ -1,0 +1,43 @@
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    background: gray;
+    padding-left: 10px;
+    height: 5vh;
+    align-items: center;
+}
+
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+li {
+    list-style: none;
+    padding: .5em;
+    overflow: hidden;
+}
+
+
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    transition: color .2s ease-in;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    color: lightcyan;
+}
