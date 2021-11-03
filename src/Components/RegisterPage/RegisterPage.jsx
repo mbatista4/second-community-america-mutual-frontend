@@ -18,7 +18,7 @@ export default function RegisterPage() {
         e.preventDefault();
         let salt = await bcryptjs.genSalt(15);
         let encrpytedPassword = await bcryptjs.hash(password,salt)
-        axios.post(`${process.env.REACT_APP_API_URL}member/member`,{
+        axios.post(`${process.env.REACT_APP_API_URL}member/register_member`,{
             firstName,
             lastName,
             address,
