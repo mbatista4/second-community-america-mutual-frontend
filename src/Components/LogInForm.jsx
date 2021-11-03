@@ -1,16 +1,25 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useHistory} from 'react-router-dom'
 import axios from 'axios';
+import bcryptjs from 'bcryptjs'; 
 import "../CSS/loginForm.css"
 
 
-export default function LogInForm() {
+export default function LogInForm({setLoggedIn}) {
     const history = useHistory();
-    const [jwtToken, setJwtToken] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     const [loginData, setLoginData] = useState({
         userId: "",
         password: ""
     });
+
+    useEffect(() => {
+        const token= localStorage.getItem("token");
+        if(token && token.length > 1) {
+            setLoggedIn(true);
+            history.push("/overview");
+        }
+    }, []);
     const handleLoginChange = (e) => {
         e.preventDefault();
         const fieldName = e.target.getAttribute("name");
@@ -21,14 +30,26 @@ export default function LogInForm() {
     }
     const login = async (e) => {
         e.preventDefault();
-        let res = await axios.post("https://scam-rest-service.herokuapp.com/teller/create_account", loginData);
-        let data = await res.json();
-        console.log(data)
+        try {
+            const salt = await bcryptjs.genSalt(15);
+            const encryptedPass = await bcryptjs.hash(loginData.password, salt);
+            const newFormData = {...loginData};
+            newFormData["password"] = encryptedPass;
+            setLoginData(newFormData);
+            let res = await axios.post(`${process.env.REACT_APP_API_URL}/member/login_member`, loginData);
+            console.log(res)
+            localStorage.setItem("token", res.data.token)
+        } catch (error) {
+            console.log(error.response.data.msg);
+            setErrorMsg(error.response.data.msg);
+        }
+        setLoggedIn(true);
         history.push("/overview");
     }
 
     return (
         <form className="login-form" onSubmit={login}>
+            <p>{errorMsg}</p>
             <input className="input-box-login" name="userId" type="text" placeholder="Username" onChange={handleLoginChange} required/>
             <input className="input-box-login" name="password" type="password" placeholder="Password" onChange={handleLoginChange} required/>
 
