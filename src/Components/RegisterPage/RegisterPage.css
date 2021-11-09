@@ -1,0 +1,25 @@
+.title {
+    display: flex auto;
+    width: 600px;
+    height: 40px;
+    background-color: #d4d4d4;
+    border-color: #abc4ff;
+    color: black;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 90px;
+}
+
+.divForm {
+    width: 600px;
+    height: 225px;
+    background-color: #abc4ff;
+    text-align: left;
+    margin-left: 100px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
+    padding: 8px;
+}
+
+input{
+    margin-bottom:3px;
+    }
