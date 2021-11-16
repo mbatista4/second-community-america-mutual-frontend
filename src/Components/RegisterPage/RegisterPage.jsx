@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import bcryptjs from 'bcryptjs';
 import axios from 'axios';
 import './RegisterPage.css';
 
@@ -17,14 +16,12 @@ export default function RegisterPage() {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        let salt = await bcryptjs.genSalt(15);
-        let encrpytedPassword = await bcryptjs.hash(password,salt)
         axios.post(`${process.env.REACT_APP_API_URL}member/register_member`,{
             firstName,
             lastName,
             address,
             userId,
-            password: encrpytedPassword,
+            password,
             socialSecurityNumber: ssn,
             dateOfBirth: birthDate
         }).then((res)=>{
