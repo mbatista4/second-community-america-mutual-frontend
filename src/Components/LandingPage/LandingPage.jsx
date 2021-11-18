@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useHistory } from 'react-router';
 import LogInForm from '../LogInForm';
 
 
 
 export default function LandingPage() {
+    const history = useHistory();
+
+    useEffect(() => {
+        const token= localStorage.getItem("token");
+        if(token && token.length > 1) {
+            //TODO add call to api to verify token
+            history.push("/overview");
+        }
+    },[]);
+
     return (
         <div className="landing-page">
             <div className="login-landing">
