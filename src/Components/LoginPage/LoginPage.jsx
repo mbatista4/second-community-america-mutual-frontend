@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useHistory } from 'react-router';
 import "../../CSS/loginPage.css"
 
 
 export default function LoginPage() {
+    const history = useHistory();
+    
+    useEffect(() => {
+        const token= localStorage.getItem("token");
+        if(token && token.length > 1) {
+            history.push("/overview");
+        }
+    }, []);
+
     return (
         <div className="wrapper">
 
