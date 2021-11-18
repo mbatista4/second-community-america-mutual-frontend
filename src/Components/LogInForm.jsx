@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Redirect, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import axios from 'axios';
-import bcryptjs from 'bcryptjs'; 
 import "../CSS/loginForm.css"
 
 
@@ -16,7 +15,7 @@ export default function LogInForm({setLoggedIn}) {
     useEffect(() => {
         const token= localStorage.getItem("token");
         if(token && token.length > 1) {
-            setLoggedIn(true);
+            // setLoggedIn(true);
             history.push("/overview");
         }
     }, []);
@@ -31,20 +30,16 @@ export default function LogInForm({setLoggedIn}) {
     const login = async (e) => {
         e.preventDefault();
         try {
-            const salt = await bcryptjs.genSalt(15);
-            const encryptedPass = await bcryptjs.hash(loginData.password, salt);
-            const newFormData = {...loginData};
-            newFormData["password"] = encryptedPass;
-            setLoginData(newFormData);
             let res = await axios.post(`${process.env.REACT_APP_API_URL}/member/login_member`, loginData);
             console.log(res)
-            localStorage.setItem("token", res.data.token)
+            localStorage.setItem("token", res.data)
+            history.push("/overview");
         } catch (error) {
             console.log(error.response.data.msg);
             setErrorMsg(error.response.data.msg);
         }
-        setLoggedIn(true);
-        history.push("/overview");
+        // setLoggedIn(true);
+        
     }
 
     return (

@@ -2,8 +2,7 @@
 .nav-bar{
     display: flex;
     justify-content: space-between;
-    background-color: #abc4ff;
-    background: linear-gradient(#e2eafc, 50%, #abc4ff);
+    background: #abc4ff;
     padding-left: 10px;
     height: 5vh;
     align-items: center;

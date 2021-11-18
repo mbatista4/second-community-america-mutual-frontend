@@ -17,6 +17,9 @@ export default function App() {
         <Route exact path="/login">
           <LoginPage />
         </Route>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
       </Switch>
       <Navbar/>
     </Router>
