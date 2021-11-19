@@ -15,7 +15,7 @@ export default function LogInForm({setLoggedIn}) {
     useEffect(() => {
         const token= localStorage.getItem("token");
         if(token && token.length > 1) {
-            // setLoggedIn(true);
+            setLoggedIn(true);
             history.push("/overview");
         }
     }, []);
@@ -38,7 +38,7 @@ export default function LogInForm({setLoggedIn}) {
             console.log(error.response.data.msg);
             setErrorMsg(error.response.data.msg);
         }
-        // setLoggedIn(true);
+        setLoggedIn(true);
         
     }
 
