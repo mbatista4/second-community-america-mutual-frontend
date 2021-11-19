@@ -46,7 +46,7 @@ export default function LogInForm({setLoggedIn}) {
         <form className="login-form" onSubmit={login}>
             <p>{errorMsg}</p>
             <input className="input-box-login" name="userId" type="text" placeholder="Username" onChange={handleLoginChange} required/>
-            <input className="input-box-login" name="password" type="password" placeholder="Password" onChange={handleLoginChange} required/>
+            <input className="input-box-login" name="password" type="password" placeholder="Password" minLength="8" onChange={handleLoginChange} required/>
 
             <div className="btn-box">
             <button type="submit" className="login-btn">Sign In</button>
