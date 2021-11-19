@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './RegisterPage.css';
+import { useHistory } from 'react-router';
 
 
 export default function RegisterPage() {
 
-    
+    const history = useHistory();
     const [userId,setUserId] = useState('');
     const [password,setPassword] = useState('');
     const [firstName,setFirstName] = useState('');
@@ -13,10 +14,11 @@ export default function RegisterPage() {
     const [birthDate,setBirthDate] = useState('');
     const [address,setAddress] = useState('');
     const [ssn,setSsn] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        axios.post(`${process.env.REACT_APP_API_URL}member/register_member`,{
+        axios.post(`${process.env.REACT_APP_API_URL}/member/register_member`,{
             firstName,
             lastName,
             address,
@@ -26,16 +28,19 @@ export default function RegisterPage() {
             dateOfBirth: birthDate
         }).then((res)=>{
             console.log(res);
+            history.push('/login');
         }).catch((error)=>{
-            console.log(error.message);
+            console.log(error.response.data.msg);
+            setErrorMsg(error.response.data.msg);
         })
 
         }
 
         return (
 
-            <><h1 className="title">Registration Page</h1>
-
+            <div className="register-page" >
+                <p>{errorMsg}</p>
+                <h1 className="register-title">Registration Page</h1>
             <div className="divForm">
 
                 <form className="form" onSubmit={handleSubmit}>
@@ -116,7 +121,8 @@ export default function RegisterPage() {
                     <a href="/login" className="open-link">Already have a membership? Click here to login.</a>
                 </form>
 
-            </div></>
+            </div>
+            </div>
 
         )
 

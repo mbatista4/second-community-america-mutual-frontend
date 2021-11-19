@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useHistory } from 'react-router';
-import "../../CSS/loginPage.css"
+import "../../CSS/loginpage.css"
 
 
 export default function LoginPage() {

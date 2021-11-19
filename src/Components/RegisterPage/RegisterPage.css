@@ -1,13 +1,21 @@
-.title {
-    display: flex auto;
+.register-page {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2eafc;
+}
+
+.register-title {
+    display: flex;
     width: 600px;
     height: 40px;
     background-color: #d4d4d4;
     border-color: #abc4ff;
     color: black;
     text-align: center;
-    margin-left: 100px;
-    margin-top: 90px;
+    margin-left: 100px; 
 }
 
 .divForm {
