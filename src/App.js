@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage/LandingPage'
 import LoginPage from './Components/LoginPage/LoginPage';
 import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
+import RegisterPage from './Components/RegisterPage/RegisterPage';
 import "./CSS/App.css"
 
 
@@ -35,6 +36,9 @@ export default function App() {
         </Route>
         <Route exact path="/overview">
           <Overview />
+        </Route>
+        <Route exact path="/register">
+          <RegisterPage />
         </Route>
       </Switch>
       <Navbar isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
