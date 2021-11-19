@@ -34,7 +34,7 @@ import '../CSS/navbar.css';
     
     return (
         <nav className="nav-bar">
-            <h1 className="title"><a className="nav-link" href="/">Second Community American Mutual</a></h1>
+            <h1><a className="nav-link" href="/">Second Community American Mutual</a></h1>
             <ul className="nav-list">
                {(isLoggedIn)? <LoggedIn/> : <NotLoggedIn/>}
                 <li><a className="nav-link" href="/about">About</a></li>
