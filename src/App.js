@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage/LandingPage'
 import LoginPage from './Components/LoginPage/LoginPage';
 import Navbar from './Components/Navbar';
 import "./CSS/App.css"
+import { LoginProvider } from './LoginContext';
 
 
 export default function App() {
@@ -11,15 +12,14 @@ export default function App() {
     <div>
       <Router>
       <Switch>
+        <LoginProvider>
         <Route exact path="/">
           <LandingPage />    
         </Route>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+        </LoginProvider>
       </Switch>
       <Navbar/>
     </Router>

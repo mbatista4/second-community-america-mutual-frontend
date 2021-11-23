@@ -1,13 +1,18 @@
 import React, {useEffect} from 'react'
 import { useHistory } from 'react-router';
-import "../../CSS/loginPage.css"
+import { useLogin, useErrorMsg, useSetErrorMsg } from '../../LoginContext';
+import "../../CSS/loginpage.css"
 
 
 export default function LoginPage() {
     const history = useHistory();
+    const login = useLogin();
+    const errorMsg = useErrorMsg();
+    const setErrorMsg = useSetErrorMsg();
     
     useEffect(() => {
         const token= localStorage.getItem("token");
+        setErrorMsg("Stupid");
         if(token && token.length > 1) {
             history.push("/overview");
         }
@@ -15,8 +20,8 @@ export default function LoginPage() {
 
     return (
         <div className="wrapper">
-
-            <form className="login-page ">
+            {errorMsg}
+            <form className="login-page " onSubmit={login}>
                 <input className="input-box-login" name="userId" type="text" placeholder="Username" />
                 <input className="input-box-login" name="password" type="password" placeholder="Password" />
 
