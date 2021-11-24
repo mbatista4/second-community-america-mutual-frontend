@@ -5,6 +5,7 @@ import LoginPage from './Components/LoginPage/LoginPage';
 import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
+import PageNotFound from './Components/PageNotFound';
 
 import "./CSS/App.css"
 import { LoginProvider } from './LoginContext';
@@ -29,8 +30,8 @@ export default function App() {
   return (
     <div>
       <Router>
-      <Switch>
         <LoginProvider>
+      <Switch>
         <Route exact path="/">
           <LandingPage setLoggedIn={setLoggedIn} />    
         </Route>
@@ -43,8 +44,11 @@ export default function App() {
         <Route exact path="/register">
           <RegisterPage />
         </Route>
-      </LoginProvider>
+        <Route>
+          <PageNotFound/>
+        </Route>
       </Switch>
+      </LoginProvider>
       <Navbar isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
     </Router>
     </div>
