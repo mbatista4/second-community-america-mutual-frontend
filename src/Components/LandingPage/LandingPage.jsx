@@ -4,13 +4,14 @@ import LogInForm from '../LogInForm';
 
 
 
-export default function LandingPage() {
+export default function LandingPage({setLoggedIn}) {
     const history = useHistory();
 
     useEffect(() => {
         const token= localStorage.getItem("token");
         if(token && token.length > 1) {
             //TODO add call to api to verify token
+            setLoggedIn(true);
             history.push("/overview");
         }
     },[]);
@@ -18,7 +19,7 @@ export default function LandingPage() {
     return (
         <div className="landing-page">
             <div className="login-landing">
-            <LogInForm />
+            <LogInForm setLoggedIn={setLoggedIn} />
             </div>
             <div className="landing-content">
                 <div className="landing-top">
