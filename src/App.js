@@ -6,6 +6,7 @@ import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import "./CSS/App.css"
+import { LoginProvider } from './LoginContext';
 
 
 export default function App() {
@@ -28,12 +29,14 @@ export default function App() {
     <div>
       <Router>
       <Switch>
+        <LoginProvider>
         <Route exact path="/">
           <LandingPage setLoggedIn={setLoggedIn} />    
         </Route>
-        <Route exact path="/login">
-          <LoginPage setLoggedIn={setLoggedIn} />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+        </LoginProvider>
         <Route exact path="/overview">
           <Overview />
         </Route>
