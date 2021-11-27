@@ -1,24 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios';
+import {useLoggedInUpdate } from '../Context/LoggedContext';
 import "../CSS/loginForm.css"
 
 
-export default function LogInForm({setLoggedIn}) {
+export default function LogInForm() {
     const history = useHistory();
+    const setLoggedIn = useLoggedInUpdate();
     const [errorMsg, setErrorMsg] = useState("");
     const [loginData, setLoginData] = useState({
         userId: "",
         password: ""
     });
 
-    useEffect(() => {
-        const token= localStorage.getItem("token");
-        if(token && token.length > 1) {
-            setLoggedIn(true);
-            history.push("/overview");
-        }
-    }, []);
     const handleLoginChange = (e) => {
         e.preventDefault();
         const fieldName = e.target.getAttribute("name");
