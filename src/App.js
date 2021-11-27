@@ -5,6 +5,7 @@ import LoginPage from './Components/LoginPage/LoginPage';
 import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
+import { LoginProvider } from './LoginContext';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
 import "./CSS/App.css"
 import {useLoggedInUpdate } from './Context/LoggedContext';
@@ -28,15 +29,15 @@ export default function App() {
 
   return (
     <div>
-      
       <Router>
+      <LoginProvider>
       <Switch>
         <Route exact path="/">
           <LandingPage />    
         </Route>
-        <Route exact path="/login">
-          <LoginPage setLoggedIn={setLoggedIn} />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
         <Route exact path="/overview">
           <Overview />
         </Route>
@@ -51,6 +52,7 @@ export default function App() {
         </Route>
       </Switch>
       <Navbar/>
+    </LoginProvider>
     </Router>
     </div>
   )

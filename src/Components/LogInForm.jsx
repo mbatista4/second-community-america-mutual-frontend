@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import axios from 'axios';
-import {useLoggedInUpdate } from '../Context/LoggedContext';
+import { useLogin, useErrorMsg } from '../LoginContext';
 import "../CSS/loginForm.css"
+import { useLoggedInUpdate } from '../Context/LoggedContext';
 
 
 export default function LogInForm() {
     const history = useHistory();
-    const setLoggedIn = useLoggedInUpdate();
-    const [errorMsg, setErrorMsg] = useState("");
+    const login = useLogin();
+    const errorMsg = useErrorMsg();
+    let setLogin = useLoggedInUpdate();
+
     const [loginData, setLoginData] = useState({
         userId: "",
         password: ""
@@ -22,26 +24,17 @@ export default function LogInForm() {
         newFormData[fieldName] = fieldValue;
         setLoginData(newFormData);
     }
-    const login = async (e) => {
-        e.preventDefault();
-        try {
-            let res = await axios.post(`${process.env.REACT_APP_API_URL}/member/login_member`, loginData);
-            console.log(res)
-            localStorage.setItem("token", res.data)
-            history.push("/overview");
-        } catch (error) {
-            console.log(error.response.data.msg);
-            setErrorMsg(error.response.data.msg);
-        }
-        setLoggedIn(true);
-        
+
+    const Login = (e) => {
+        setLogin(true);
+        login(e);
     }
 
     return (
-        <form className="login-form" onSubmit={login}>
+        <form className="login-form" onSubmit={Login}>
             <p>{errorMsg}</p>
             <input className="input-box-login" name="userId" type="text" placeholder="Username" onChange={handleLoginChange} required/>
-            <input className="input-box-login" name="password" type="password" placeholder="Password" onChange={handleLoginChange} required/>
+            <input className="input-box-login" name="password" type="password" placeholder="Password" minLength="8" onChange={handleLoginChange} required/>
 
             <div className="btn-box">
             <button type="submit" className="login-btn">Sign In</button>
