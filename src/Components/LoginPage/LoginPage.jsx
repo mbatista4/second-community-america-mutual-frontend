@@ -22,8 +22,8 @@ export default function LoginPage() {
         <div className="wrapper">
             {errorMsg}
             <form className="login-page " onSubmit={login}>
-                <input className="input-box-login" name="userId" type="text" placeholder="Username" />
-                <input className="input-box-login" name="password" type="password" placeholder="Password" />
+                <input className="input-box-login" name="userId" type="text" placeholder="Username" required/>
+                <input className="input-box-login" name="password" type="password" placeholder="Password" required minLength="8"/>
 
                 <div className="btn-box">
                 <button type="submit" className="login-btn">Sign In</button>
