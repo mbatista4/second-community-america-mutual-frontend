@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LandingPage from './Components/LandingPage/LandingPage'
 import LoginPage from './Components/LoginPage/LoginPage';
 import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
-
-import "./CSS/App.css"
 import { LoginProvider } from './LoginContext';
+import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
+import "./CSS/App.css"
+import {useLoggedInUpdate } from './Context/LoggedContext';
 
 
 export default function App() {
 
-  const [isLoggedIn,setLoggedIn] = useState(false);
+  const setLoggedIn = useLoggedInUpdate();
 
   useEffect(() => {
 
@@ -29,10 +30,10 @@ export default function App() {
   return (
     <div>
       <Router>
+      <LoginProvider>
       <Switch>
-        <LoginProvider>
         <Route exact path="/">
-          <LandingPage setLoggedIn={setLoggedIn} />    
+          <LandingPage />    
         </Route>
           <Route exact path="/login">
             <LoginPage />
@@ -43,9 +44,15 @@ export default function App() {
         <Route exact path="/register">
           <RegisterPage />
         </Route>
-      </LoginProvider>
+        <Route exact path="/w/login">
+          <WorkerLogin/>
+        </Route>
+        <Route exact path="/w/home">
+         <Overview/>
+        </Route>
       </Switch>
-      <Navbar isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
+      <Navbar/>
+    </LoginProvider>
     </Router>
     </div>
   )
