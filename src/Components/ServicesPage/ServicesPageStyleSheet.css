@@ -2,13 +2,18 @@
     background-color: #e2eafc;
     display: flex;
     flex-direction: row;
-    height: 89vh;
+    height: 90vh;
 }
 
 .page-header{
     background-color: #abc4ff;
+    display: flex;
     text-align: center;
-    height: 6vh;
+    justify-content: center;
+    align-content: center;
+    height: 5vh;
+    background: linear-gradient(to top,#e2eafc , #a4c1ff 50%);
+    
 }
 
 .checking-box {

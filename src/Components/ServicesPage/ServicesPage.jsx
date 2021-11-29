@@ -5,9 +5,9 @@ export default function ServicesPage() {
     return (
         <div>
             <div className="page-header">
-                <h2>Here at Second Community American Mutual, We offer a wide variety of services such as checking accounts, saving accounts, 
+                <h3>Here at Second Community American Mutual, We offer a wide variety of services such as checking accounts, saving accounts, 
                     and home and auto loans with some of the lowest interest rates on the market.
-                </h2>
+                </h3>
             </div>
             <div className="page">
                 <div className="checking-box">
