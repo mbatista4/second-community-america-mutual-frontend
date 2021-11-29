@@ -3,9 +3,9 @@
     background-color: #e2eafc;
     color: black;
     text-align: center;
-    width: 1920px;
-    height: 1000px;
-    position: fixed;
+    width: 100vw;
+    height: 95vh;
+    
 }
 
 .about-info1{

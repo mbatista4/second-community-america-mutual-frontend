@@ -9,6 +9,7 @@ import { LoginProvider } from './LoginContext';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
 import "./CSS/App.css"
 import {useLoggedInUpdate } from './Context/LoggedContext';
+import About from './Components/AboutPage/About';
 
 
 export default function App() {
@@ -43,6 +44,9 @@ export default function App() {
         </Route>
         <Route exact path="/register">
           <RegisterPage />
+        </Route>
+        <Route exact path="/about">
+          <About />
         </Route>
         <Route exact path="/w/login">
           <WorkerLogin/>
