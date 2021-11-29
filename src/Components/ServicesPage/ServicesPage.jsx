@@ -38,7 +38,6 @@ export default function ServicesPage() {
                     <h1 className="checking-header">Home and Auto Loans</h1>
                     <h3 className="checking-info">Second Community American Mutual home and auto loans offer you competitive interest rates on fixed Loans.
                     </h3> 
-                    <h3 className="checking-earn">Earn</h3>
                     <ul className="checking-earn">
                         <li>Home loan at 29.99% interest</li>
                         <li>Auto loan at 29.98% interest</li>

@@ -2,11 +2,13 @@
     background-color: #e2eafc;
     display: flex;
     flex-direction: row;
+    height: 89vh;
 }
 
 .page-header{
     background-color: #abc4ff;
     text-align: center;
+    height: 6vh;
 }
 
 .checking-box {
