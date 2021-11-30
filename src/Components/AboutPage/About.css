@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     background-color: #abc4ff;
-    width:600px;
+    width:30vw;
     font-size: large;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
     float: left;
@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
     background-color: #abc4ff;
-    width:600px;
+    width:30vw;
     font-size: large;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
     float: left;
@@ -39,7 +39,7 @@
 }
 
 .about-us{
-    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 50px;
 }
 
@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
     background-color: #abc4ff;
-    width:400px;
+    width:20vw;
     font-size: large;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
     float: left;
