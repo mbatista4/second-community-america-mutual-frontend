@@ -1,4 +1,57 @@
-.register-page {
+.registerTitle {
+    display: flex auto;
+    background-color: #e2eafc;
+    color: black;
+    text-align: center;
+    margin-top: 25vh;
+}
+
+.divForm {
+    width: 30vw;
+    background-color: #abc4ff;
+    text-align: left;
+    margin: auto;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 0px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.formInput{
+    margin-bottom:8px;
+    width: 100%;
+    height: 25px;
+    border-radius: 4px;
+    padding: 12px 8px;
+    display: block;
+}
+
+.formName{
+    margin-bottom:8px;
+    margin-right: 3px;
+    margin-top: 3px;
+    width: 33%;
+    height: 25px;
+    border-radius: 4px;
+    padding: 12px 8px;
+    display: inline-block;
+}
+
+.formDate{
+    margin-bottom:4px;
+    width: 30%;
+    height: 25px;
+    border-radius: 4px;
+    display: block;
+}
+
+.registerBody{
     height: 95vh;
     display: flex;
     flex-direction: column;
@@ -7,27 +60,18 @@
     background-color: #e2eafc;
 }
 
-.register-title {
-    display: flex;
-    width: 600px;
-    height: 40px;
-    background-color: #d4d4d4;
-    border-color: #abc4ff;
-    color: black;
+.formRegister{
+    padding: 3px 2px;
+    width: 100%;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom:4px;
+}
+
+.formRegister:hover{
+    background-color: gray;
+}
+.registerPara{
     text-align: center;
-    margin-left: 100px; 
 }
-
-.divForm {
-    width: 600px;
-    height: 225px;
-    background-color: #abc4ff;
-    text-align: left;
-    margin-left: 100px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, .4);
-    padding: 8px;
-}
-
-input{
-    margin-bottom:3px;
-    }

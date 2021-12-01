@@ -11,6 +11,11 @@ import ServicesPage from './Components/ServicesPage/ServicesPage';
 import TellerHomePage from './Components/TellerHomePage';
 import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
+<<<<<<< HEAD
+=======
+import About from './Components/AboutPage/About';
+import ServicesPage from './Components/ServicesPage/ServicesPage';
+>>>>>>> 1fadcdbdd8cb964f989ce8826b6c9bd694ef7fc7
 import "./CSS/App.css"
 
 
@@ -49,6 +54,9 @@ export default function App() {
         </Route>
         <Route exact path="/register">
           <RegisterPage />
+        </Route>
+        <Route exact path="/about">
+          <About />
         </Route>
         <Route exact path="/w/login">
           <WorkerLogin/>

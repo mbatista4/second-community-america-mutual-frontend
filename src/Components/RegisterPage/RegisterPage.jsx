@@ -3,9 +3,9 @@ import axios from 'axios';
 import './RegisterPage.css';
 import { useHistory } from 'react-router';
 
-
 export default function RegisterPage() {
 
+    
     const history = useHistory();
     const [userId,setUserId] = useState('');
     const [password,setPassword] = useState('');
@@ -36,65 +36,75 @@ export default function RegisterPage() {
 
         }
 
+
         return (
 
-            <div className="register-page" >
-                <p>{errorMsg}</p>
-                <h1 className="register-title">Registration Page</h1>
+            <body className="registerBody">
+            <><h1 className="registerTitle">Membership Creation</h1>
+            <p className="registerPara">Thank you for choosing Second Community American Mutual.</p>
+
             <div className="divForm">
 
                 <form className="form" onSubmit={handleSubmit}>
 
-                    <label>Please enter a username:</label>
-                    <input type="text"
-                        className="userName"
-                        value={userId}
-                        onChange={(e) => setUserId(e.target.value)}
-                        required>
-                    </input>
-                    <br></br>
+                    <p> To continue please fill out the fields below.</p>
 
-                    <label>Please enter a password: </label>
-                    <input type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required>
-                    </input>
-
-                    <br></br>
-
-                    <label>First Name:</label>
-                    <input type="text"
+                    <label>First Name: </label>
+                    <input className="formName" 
+                        type="text"
                         id="fname"
+                        placeholder="Enter Your First Name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         required>
                     </input>
-                    <br></br>
-                    <label>Last Name:</label>
-                    <input type="text"
+                    
+                    <label>Last Name: </label>
+                    <input className="formName" 
+                        type="text"
                         id="lname"
+                        placeholder="Enter Your Last Name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         required>
                     </input>
 
-                    <br></br>
+                    <label>Enter a Username: </label>
+                    <input type="text"
+                        className="formInput"
+                        placeholder="Please Enter a Username"
+                        value={userId}
+                        onChange={(e) => setUserId(e.target.value)}
+                        required>
+                    </input>
+                    
 
-                    <label>Date of Birth:</label>
+                    <label>Enter a Password: </label>
+                    <input className="formInput"
+                        type="password"
+                        id="password"
+                        placeholder="Please Enter a Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required>
+                    </input>
+
+
+                    <label>Date of Birth: </label>
                     <input type="date"
                         id="birthDate"
+                        className="formDate"
                         value={birthDate}
                         onChange={(e) => setBirthDate(e.target.value)}
                         required>
                     </input>
 
-                    <br></br>
 
-                    <label>Please enter your Social Security Number:</label>
-                    <input type="password"
+                    <label>Please Enter Your Social Security Number: </label>
+                    <input className="formDate" 
+                        type="password"
                         id="ssn"
+                        placeholder="012-34-567"
                         value={ssn}
                         onChange={(e) => setSsn(e.target.value)}
                         required
@@ -102,44 +112,28 @@ export default function RegisterPage() {
                         maxLength={9}>
                     </input>
 
-                    <br></br>
+                    
 
-                    <label>Please enter your address:</label>
-                    <input type="text"
+                    <label>Please Enter Your Address: </label>
+                    <input className="formInput"
+                        type="text"
                         id="address"
+                        placeholder="Enter Your Address"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                         required>
                     </input>
 
-                    <br></br>
+                    
 
-                    <input type="submit" value="Register"></input>
+                    <input type="submit" className = "formRegister" value="Register"></input>
 
-                    <br></br>
 
                     <a href="/login" className="open-link">Already have a membership? Click here to login.</a>
                 </form>
 
-            </div>
-            </div>
-
+            </div></>
+            </body>
         )
 
 }
-
-/* function example(){
-    //do function
-
-    //functions return html tags
-    return (
-        <div>
-            <form>
-                <input type="text" id="fname"></input>
-                <label for="fname">First Name:</label>
-            
-            </form>
-
-        </div>
-    )
-} */
