@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
 import { useHistory } from 'react-router';
+import { useLoggedInUpdate } from '../../Context/LoggedContext';
 import LogInForm from '../LogInForm';
 
 
 
-export default function LandingPage({setLoggedIn}) {
+export default function LandingPage() {
     const history = useHistory();
+    const setLoggedIn = useLoggedInUpdate();
 
     useEffect(() => {
         const token= localStorage.getItem("token");
@@ -19,7 +21,7 @@ export default function LandingPage({setLoggedIn}) {
     return (
         <div className="landing-page">
             <div className="login-landing">
-            <LogInForm setLoggedIn={setLoggedIn} />
+            <LogInForm />
             </div>
             <div className="landing-content">
                 <div className="landing-top">

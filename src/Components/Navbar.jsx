@@ -1,10 +1,14 @@
 import React from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
+import axios from 'axios';
+import { useLogged, useLoggedInUpdate } from '../Context/LoggedContext';
 import '../CSS/navbar.css';
 
- function Navbar({isLoggedIn, setLoggedIn}) {
+ function Navbar() {
 
     const history = useHistory();
+    const isLoggedIn = useLogged();
+    const setLoggedIn = useLoggedInUpdate();
 
     const LoggedIn = () =>{
 
@@ -27,7 +31,16 @@ import '../CSS/navbar.css';
     const Logout = () => {
         setLoggedIn(false);
         console.log(isLoggedIn);
+        let token = localStorage.getItem('token');
         localStorage.removeItem('token');
+
+        axios.post(`${process.env.REACT_APP_API_URL}/teller/logout`,null,{headers: { 'x-auth-token': token}})
+            .then((res) => {
+                console.log(res);
+            }).catch((error) => {
+                console.log(error.response.data.msg);
+            });
+
         history.push('/');
     }
 
