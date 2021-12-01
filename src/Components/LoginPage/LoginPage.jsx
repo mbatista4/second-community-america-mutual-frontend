@@ -12,7 +12,7 @@ export default function LoginPage() {
     
     useEffect(() => {
         const token= localStorage.getItem("token");
-        setErrorMsg("Stupid");
+        // setErrorMsg("Stupid");
         if(token && token.length > 1) {
             history.push("/overview");
         }

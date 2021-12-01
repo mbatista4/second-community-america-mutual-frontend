@@ -2,13 +2,14 @@ import React, {useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LandingPage from './Components/LandingPage/LandingPage'
 import LoginPage from './Components/LoginPage/LoginPage';
-import Overview from './Components/Overview';
+import Overview from './Components/OverviewPage/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import PageNotFound from './Components/PageNotFound';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
 import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
+import ServicesPage from './Components/ServicesPage/ServicesPage';
 import "./CSS/App.css"
 
 
@@ -41,6 +42,9 @@ export default function App() {
           </Route>
         <Route exact path="/overview">
           <Overview />
+        </Route>
+        <Route exact path="/services">
+          <ServicesPage />
         </Route>
         <Route exact path="/register">
           <RegisterPage />
