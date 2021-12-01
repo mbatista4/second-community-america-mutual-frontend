@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import { useLogin, useErrorMsg } from '../LoginContext';
+import { useLogin, useErrorMsg } from '../Context/LoginContext';
 import "../CSS/loginForm.css"
 import { useLoggedInUpdate } from '../Context/LoggedContext';
 
