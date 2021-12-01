@@ -5,10 +5,11 @@ import LoginPage from './Components/LoginPage/LoginPage';
 import Overview from './Components/Overview';
 import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
-import { LoginProvider } from './LoginContext';
+import PageNotFound from './Components/PageNotFound';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
-import "./CSS/App.css"
+import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
+import "./CSS/App.css"
 
 
 export default function App() {
@@ -49,6 +50,9 @@ export default function App() {
         </Route>
         <Route exact path="/w/home">
          <Overview/>
+        </Route>
+        <Route>
+         < PageNotFound />
         </Route>
       </Switch>
       <Navbar/>
