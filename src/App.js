@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import PageNotFound from './Components/PageNotFound';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
-import { LoginProvider } from './LoginContext';
+import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
 import "./CSS/App.css"
 
