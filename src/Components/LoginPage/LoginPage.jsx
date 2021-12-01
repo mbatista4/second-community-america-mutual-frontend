@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useHistory } from 'react-router';
-import { useLogin, useErrorMsg, useSetErrorMsg } from '../../LoginContext';
+import { useLogin, useErrorMsg, useSetErrorMsg } from '../../Context/LoginContext';
 import "../../CSS/loginpage.css"
 
 
@@ -12,7 +12,7 @@ export default function LoginPage() {
     
     useEffect(() => {
         const token= localStorage.getItem("token");
-        setErrorMsg("Stupid");
+        // setErrorMsg("Stupid");
         if(token && token.length > 1) {
             history.push("/overview");
         }
