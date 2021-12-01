@@ -12,7 +12,6 @@ import TellerHomePage from './Components/TellerHomePage';
 import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
 import About from './Components/AboutPage/About';
-import ServicesPage from './Components/ServicesPage/ServicesPage';
 import "./CSS/App.css"
 
 
