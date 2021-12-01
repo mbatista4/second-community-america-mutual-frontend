@@ -1,0 +1,62 @@
+.teller-page {
+    height: 95vh;
+}
+
+.teller-top {
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d7e3fc;
+
+}
+
+.teller-search {
+    border-color: transparent;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+}
+
+.teller-submit-btn {
+    border-color: transparent;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+.teller-submit-btn:hover,
+.bank-info-btn:hover {
+    background-color: #d2e0ff;
+    cursor: pointer;
+}
+
+.teller-center {
+    background-color: #d7e3fc;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-center {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px 10px 10px 10px;
+}
+
+.bank-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px;
+    border: 1px solid black;
+}
+
+.bank-info-btn {
+    background-color: transparent;
+    border: none;
+    padding-right: 5px;
+}
+
