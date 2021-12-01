@@ -7,10 +7,15 @@ import Navbar from './Components/Navbar';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
 import PageNotFound from './Components/PageNotFound';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
+import ServicesPage from './Components/ServicesPage/ServicesPage';
+import TellerHomePage from './Components/TellerHomePage';
 import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
+<<<<<<< HEAD
+=======
 import About from './Components/AboutPage/About';
 import ServicesPage from './Components/ServicesPage/ServicesPage';
+>>>>>>> 1fadcdbdd8cb964f989ce8826b6c9bd694ef7fc7
 import "./CSS/App.css"
 
 
@@ -57,7 +62,7 @@ export default function App() {
           <WorkerLogin/>
         </Route>
         <Route exact path="/w/home">
-         <Overview/>
+         <TellerHomePage/>
         </Route>
         <Route>
          < PageNotFound />
