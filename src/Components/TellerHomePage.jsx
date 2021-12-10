@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import {data} from '../data';
+import axios from 'axios';
 
 
 export default function WorkerHomePage() {
@@ -9,24 +10,43 @@ export default function WorkerHomePage() {
     const [membersUserId,setMembersUserId] = useState("");
     const [msg,setMsg] = useState("");
     const [memberData,setMemberData] = useState([]);
+
     const handleSearch = (e) =>{
         e.preventDefault();
-        setMsg("searching Account...")
-
+        clearData();
+        axios.get(`${process.env.REACT_APP_API_URL}/account/get`,{params: {
+            owner: membersUserId
+        }})
+            .then(res =>{ 
+                if(res.data < 1){
+                    setMsg("there are no bank account linked to this member");
+                } else {
+                    setMemberData(res.data);
+                }
+            })
+            .catch((error)  => {
+                console.log(error);
+                setMsg(error.response.data.msg);
+            })
     }
 
     const handleSwitch = (e) => {
-        console.log("switching to detailed view page");
-        setMsg("going to detailed view");
-        // history.push('/w/detailed');
+        e.preventDefault();
+        sessionStorage.setItem("accountId",e.target[0].value);
+        history.push('/w/detailed');
+    }
+
+    const clearData = () =>{
+        setMemberData([]);
+        setMsg("");
     }
 
     const BankAccount = ({bankInfo}) => {
 
-        let {accountType,accountNumber,balance} = bankInfo;
+        let {accountType,accountNumber,balance,_id} = bankInfo;
 
         return (
-            <div className="bank-info">
+            <form className="bank-info" onSubmit={handleSwitch}>
                 <div className="acccount-number">
                     <p>AccountNumber:</p>
                     <p> {accountNumber}</p>
@@ -39,30 +59,24 @@ export default function WorkerHomePage() {
                     <p>Balance:</p>
                     <p>{balance}</p>
                 </div>
-                <button className="bank-info-btn" type="button" onClick={handleSwitch} >View</button>
-            </div>
+                <button className="bank-info-btn" type="submit" value={_id} >View</button>
+            </form>
         );
     }
 
     return (
         <section className="teller-page" >
             <section className="teller-top">
-            <h3 className='teller-title' >Teller Home</h3>
-            <form className="search-box" onSubmit={handleSearch} >
-                <input type="text" className="teller-search" required placeholder="enter a members userId" onChange={(e) => setMembersUserId(e.target.value) }/>
-                <button type="submit" className="teller-submit-btn" >search</button>
-            </form>
-            <p>{msg}</p>
+                <h3 className='teller-title' >Teller Home</h3>
+                <form className="search-box" onSubmit={handleSearch} >
+                    <button type="reset" onClick={clearData}>clear results</button>
+                    <input type="text" className="teller-search" required placeholder="enter a members userId" onChange={(e) => setMembersUserId(e.target.value) }/>
+                    <button type="submit" className="teller-submit-btn" >search</button>
+                </form>
             </section>
-
             <section className="teller-center">
-                <div className="data-center">
-                    {data.map(bankInfo =>(<BankAccount key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}
-                </div>
+               {memberData.length < 1 ? <p>{msg}</p> :  <div className="data-center">{memberData.map(bankInfo =>(<BankAccount key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}</div>}
             </section>
-                {/* {data.map(ticket => (<Ticket key={ticket._id} desc={ticket.desc} devAssigned={ticket.devAssigned} priority={ticket.priority} id={ticket._id} getData={getData} />))} */}
-
-        
         </section>
-    )
+    );
 }

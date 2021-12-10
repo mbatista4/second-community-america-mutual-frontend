@@ -9,6 +9,7 @@ import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
 import "./CSS/App.css"
 import {useLoggedInUpdate } from './Context/LoggedContext';
 import TellerHomePage from './Components/TellerHomePage';
+import TellerDetaliedPage from './Components/TellerDetaliedPage';
 
 
 export default function App() {
@@ -49,6 +50,9 @@ export default function App() {
         </Route>
         <Route exact path="/w/home">
          <TellerHomePage/>
+        </Route>
+        <Route exact path="/w/detailed">
+         <TellerDetaliedPage/>
         </Route>
       </Switch>
       <Navbar/>
