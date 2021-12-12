@@ -1,16 +1,19 @@
 import React, {useEffect} from 'react';
 import { useHistory } from 'react-router';
+import { useLoggedInUpdate } from '../../Context/LoggedContext';
 import LogInForm from '../LogInForm';
 
 
 
 export default function LandingPage() {
     const history = useHistory();
+    const setLoggedIn = useLoggedInUpdate();
 
     useEffect(() => {
         const token= localStorage.getItem("token");
         if(token && token.length > 1) {
             //TODO add call to api to verify token
+            setLoggedIn(true);
             history.push("/overview");
         }
     },[]);

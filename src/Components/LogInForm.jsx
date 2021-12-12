@@ -1,25 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { useLogin, useErrorMsg } from '../LoginContext';
 import "../CSS/loginForm.css"
+import { useLoggedInUpdate } from '../Context/LoggedContext';
 
 
-export default function LogInForm({setLoggedIn}) {
+export default function LogInForm() {
     const history = useHistory();
     const login = useLogin();
     const errorMsg = useErrorMsg();
+    let setLogin = useLoggedInUpdate();
+
     const [loginData, setLoginData] = useState({
         userId: "",
         password: ""
     });
 
-    useEffect(() => {
-        const token= localStorage.getItem("token");
-        if(token && token.length > 1) {
-            // setLoggedIn(true);
-            history.push("/overview");
-        }
-    }, []);
     const handleLoginChange = (e) => {
         e.preventDefault();
         const fieldName = e.target.getAttribute("name");
@@ -29,9 +25,13 @@ export default function LogInForm({setLoggedIn}) {
         setLoginData(newFormData);
     }
 
+    const Login = (e) => {
+        setLogin(true);
+        login(e);
+    }
 
     return (
-        <form className="login-form" onSubmit={login}>
+        <form className="login-form" onSubmit={Login}>
             <p>{errorMsg}</p>
             <input className="input-box-login" name="userId" type="text" placeholder="Username" onChange={handleLoginChange} required/>
             <input className="input-box-login" name="password" type="password" placeholder="Password" minLength="8" onChange={handleLoginChange} required/>
