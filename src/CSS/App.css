@@ -29,6 +29,7 @@
     background-color: #d7e3fc;
     background: linear-gradient(to bottom,#d7e3fc, #e2eafc 99%);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+    border-radius: 5%;
 
 }
 
