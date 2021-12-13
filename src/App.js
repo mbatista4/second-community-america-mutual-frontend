@@ -9,6 +9,7 @@ import PageNotFound from './Components/PageNotFound';
 import WorkerLogin from './Components/WorkerLogin/WorkerLogin';
 import ServicesPage from './Components/ServicesPage/ServicesPage';
 import TellerHomePage from './Components/TellerHomePage';
+import TellerDetaliedPage from './Components/TellerDetaliedPage';
 import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
 import About from './Components/AboutPage/About';
@@ -60,8 +61,11 @@ export default function App() {
         <Route exact path="/w/home">
          <TellerHomePage/>
         </Route>
+        <Route exact path="/w/detailed">
+         <TellerDetaliedPage/>
+        </Route>
         <Route>
-         < PageNotFound />
+          <PageNotFound/>
         </Route>
       </Switch>
       <Navbar/>
