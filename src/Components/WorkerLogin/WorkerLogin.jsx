@@ -50,7 +50,7 @@ export default function WorkerLogin() {
             <p className="error-message" >{errorMsg}</p>
                 <input className="input-box-login" name="userId" type="text" required placeholder="Username" onChange={(e) => setUserId(e.target.value)} />
                 <input className="input-box-login" name="password" type="password" required minLength={8} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                <select name="workerType" id="type" onChange={(e) => setWorkerType(e.target.value)} >
+                <select className='worker-type' name="workerType" id="type" onChange={(e) => setWorkerType(e.target.value)} >
                     <option value="teller" defaultValue >Teller</option>
                     <option value="admin">Admin</option>
                 </select>

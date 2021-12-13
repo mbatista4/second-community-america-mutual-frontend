@@ -15,13 +15,18 @@
 .teller-search {
     border-color: transparent;
     background-color: white;
-    border-radius: 10px 0 0 10px;
 }
 
 .teller-submit-btn {
     border-color: transparent;
     background-color: white;
     border-radius: 0 10px 10px 0;
+}
+
+.teller-clear-btn {
+    border-color: transparent;
+    background-color: white;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .teller-submit-btn:hover,
@@ -34,6 +39,7 @@
     background-color: #d7e3fc;
     height: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -60,3 +66,9 @@
     padding-right: 5px;
 }
 
+
+.create-account {
+    display: flex;
+    width: 50%;
+    height: 50%;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import {data} from '../data';
+import CreateAccount from './CreateAccount';
 import axios from 'axios';
 
 
@@ -10,13 +10,14 @@ export default function WorkerHomePage() {
     const [membersUserId,setMembersUserId] = useState("");
     const [msg,setMsg] = useState("");
     const [memberData,setMemberData] = useState([]);
+    const [showForm, setShowForm] = useState(false);
 
     const handleSearch = (e) =>{
         e.preventDefault();
         clearData();
-        axios.get(`${process.env.REACT_APP_API_URL}/account/get`,{params: {
-            owner: membersUserId
-        }})
+        axios.get(`${process.env.REACT_APP_API_URL}/account/get`,{
+            headers: {"x-auth-token" : localStorage.getItem('token')},
+            params: { owner: membersUserId}})
             .then(res =>{ 
                 if(res.data < 1){
                     setMsg("there are no bank account linked to this member");
@@ -69,13 +70,16 @@ export default function WorkerHomePage() {
             <section className="teller-top">
                 <h3 className='teller-title' >Teller Home</h3>
                 <form className="search-box" onSubmit={handleSearch} >
-                    <button type="reset" onClick={clearData}>clear results</button>
+                    <button type="reset" className="teller-clear-btn" onClick={clearData}>clear results</button>
                     <input type="text" className="teller-search" required placeholder="enter a members userId" onChange={(e) => setMembersUserId(e.target.value) }/>
                     <button type="submit" className="teller-submit-btn" >search</button>
                 </form>
             </section>
-            <section className="teller-center">
-               {memberData.length < 1 ? <p>{msg}</p> :  <div className="data-center">{memberData.map(bankInfo =>(<BankAccount key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}</div>}
+            <section className="teller-center"> 
+            {memberData.length < 1  ? <p>{msg}</p> : <></>}
+            {(memberData.length > 0) ?  <div className="data-center">{memberData.map(bankInfo =>(<BankAccount key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}</div> :  <></>}
+            {(memberData.length > 0) ? <button type='button' onClick={() => {setShowForm(!showForm)}}>create account</button> : <></>}
+            {(memberData.length > 0 && showForm) ? <CreateAccount setShowForm={setShowForm} userId={membersUserId} /> : <></> }
             </section>
         </section>
     );
