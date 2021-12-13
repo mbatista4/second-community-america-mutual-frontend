@@ -1,0 +1,13 @@
+.transaction-table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+}
+
+th, td {
+    
+    border: 1px solid #c2c2c2;
+    text-align: center;
+    padding: 8px;
+    font-size: 24px;
+}

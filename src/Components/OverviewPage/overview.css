@@ -1,0 +1,25 @@
+.overview-page {
+    display: flex;
+    height: 95vh;
+    background-color: #e2eafc;
+    align-items: center;
+    flex-direction: column;
+}
+
+.accounts-box{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 60%;
+    width: 50%;
+    background-color: #abc4ff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+.accounts-overview {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
