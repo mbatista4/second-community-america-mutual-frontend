@@ -3,10 +3,12 @@ import BankAccount from '../BankAccount'
 import {data} from '../../data';
 import './overview.css'
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 export default function Overview() {
 
     const [memberData,setMemberData] = useState([])
+    const history = useHistory();
 
     useEffect(()=>{
         getTransactionList();
@@ -29,16 +31,40 @@ export default function Overview() {
             })
     }
 
-    /*function handleClick(e) {
-        e.preventDefault();    
-        console.log('You clicked submit.');
-    }*/
+    const BankAccount = ({bankInfo}) => {
+
+        let {accountType,accountNumber,balance,_id} = bankInfo;
+
+        return (
+            <form className="bank-info" onSubmit={handleSwitch}>
+                <div className="acccount-number">
+                    <p>AccountNumber:</p>
+                    <p> {accountNumber}</p>
+                </div>
+                <div className="account-type">
+                    <p>Account Type:</p>
+                    <p>{accountType}</p>
+                </div>
+                <div className="balance">
+                    <p>Balance:</p>
+                    <p>{balance}</p>
+                </div>
+                <button className="bank-info-btn" type="submit" value={_id} >View</button>
+            </form>
+        );
+    }
+
+    const handleSwitch = (e) => {
+        e.preventDefault();
+        sessionStorage.setItem("accountId",e.target[0].value);
+        history.push('/detailedoverview');
+    }
 
     return (
         <div className="overview-page">
             <div className="accounts-box">
                 <h2>Accounts</h2>
-                <div className="accounts-overview" /*onClick={handleClick}*/>
+                <div className="accounts-overview" >
                     
                     {memberData.map(bankInfo =>(<BankAccount className="accounts-overview" key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}
                 </div>
