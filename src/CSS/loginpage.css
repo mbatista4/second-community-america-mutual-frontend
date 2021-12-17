@@ -12,6 +12,7 @@
     height: 25em;
     background-color: #abc4ff;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+    border-radius: 10% 10% 10% 10%;
 }
 
 .input-box-login {
