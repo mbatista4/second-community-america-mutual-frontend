@@ -37,6 +37,7 @@ import '../CSS/navbar.css';
         axios.post(`${process.env.REACT_APP_API_URL}/teller/logout`,null,{headers: { 'x-auth-token': token}})
             .then((res) => {
                 console.log(res);
+                return history.push('/w/login');
             }).catch((error) => {
                 console.log(error.response.data.msg);
             });

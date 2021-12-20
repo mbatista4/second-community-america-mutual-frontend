@@ -21,6 +21,7 @@ export default function WorkerHomePage() {
             .then(res =>{ 
                 if(res.data < 1){
                     setMsg("there are no bank account linked to this member");
+                    setShowForm(true);
                 } else {
                     setMemberData(res.data);
                 }
@@ -79,7 +80,7 @@ export default function WorkerHomePage() {
             {memberData.length < 1  ? <p>{msg}</p> : <></>}
             {(memberData.length > 0) ?  <div className="data-center">{memberData.map(bankInfo =>(<BankAccount key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}</div> :  <></>}
             {(memberData.length > 0) ? <button type='button' onClick={() => {setShowForm(!showForm)}}>create account</button> : <></>}
-            {(memberData.length > 0 && showForm) ? <CreateAccount setShowForm={setShowForm} userId={membersUserId} /> : <></> }
+            {(showForm) ? <CreateAccount setShowForm={setShowForm} userId={membersUserId} /> : <></> }
             </section>
         </section>
     );
