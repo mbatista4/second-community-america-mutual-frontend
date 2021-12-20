@@ -1,0 +1,9 @@
+.DetailedOverview-page {
+    display: flex auto;
+    background-color: #e2eafc;
+    color: black;
+    text-align: center;
+    width: 100vw;
+    height: 95vh;
+    
+}

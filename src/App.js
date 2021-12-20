@@ -14,6 +14,7 @@ import { LoginProvider } from './Context/LoginContext';
 import {useLoggedInUpdate } from './Context/LoggedContext';
 import About from './Components/AboutPage/About';
 import "./CSS/App.css"
+import DetailedOverview from './Components/DetailedOverview/DetailedOverview';
 
 
 export default function App() {
@@ -45,6 +46,9 @@ export default function App() {
           </Route>
         <Route exact path="/overview">
           <Overview />
+        </Route>
+        <Route exact path="/detailedoverview">
+         <DetailedOverview/>
         </Route>
         <Route exact path="/services">
           <ServicesPage />
