@@ -69,6 +69,11 @@
 
 .create-account {
     display: flex;
-    width: 50%;
+    flex-direction: column;
+    width: 10%;
     height: 50%;
+}
+
+.create-account select {
+    text-align: center;
 }
