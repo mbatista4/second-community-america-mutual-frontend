@@ -65,7 +65,7 @@ export default function Overview() {
             <div className="accounts-box">
                 <h2>Accounts</h2>
                 <div className="accounts-overview" >
-                    
+                    {memberData.length < 1? <p>No bank account open. go to the bank to open one.</p> : <></>}
                     {memberData.map(bankInfo =>(<BankAccount className="accounts-overview" key={bankInfo.accountNumber} bankInfo={bankInfo}/>))}
                 </div>
             </div>
